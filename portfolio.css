@@ -37,6 +37,10 @@ body {
     transition: all 0.3s ease;
 }
 
+.container.atithi-view .sidebar {
+    display: none;
+}
+
 .profile {
     text-align: center;
     margin-bottom: 30px;
@@ -79,7 +83,8 @@ nav ul li a {
     transition: all 0.3s ease;
 }
 
-nav ul li a:hover, nav ul li a.active {
+nav ul li a:hover,
+nav ul li a.active {
     background-color: var(--accent);
 }
 
@@ -123,6 +128,11 @@ main {
     flex: 1;
     padding: 30px;
     overflow-y: auto;
+    width: 100%;
+}
+
+.container.atithi-view main {
+    padding: 0;
 }
 
 section {
@@ -140,8 +150,15 @@ section.active {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .section-header {
@@ -195,7 +212,8 @@ section.active {
     font-size: 2rem;
 }
 
-.bar, .dot {
+.bar,
+.dot {
     color: var(--accent);
 }
 
@@ -285,7 +303,8 @@ section.active {
     margin-bottom: 40px;
 }
 
-.education h3, .skills-section h3 {
+.education h3,
+.skills-section h3 {
     margin-bottom: 20px;
     color: var(--primary);
 }
@@ -515,7 +534,8 @@ section.active {
     margin-bottom: 20px;
 }
 
-.form-group input, .form-group textarea {
+.form-group input,
+.form-group textarea {
     width: 100%;
     padding: 15px;
     border: 1px solid #ddd;
@@ -524,7 +544,8 @@ section.active {
     font-size: 1rem;
 }
 
-.form-group input:focus, .form-group textarea:focus {
+.form-group input:focus,
+.form-group textarea:focus {
     outline: none;
     border-color: var(--accent);
 }
@@ -550,49 +571,284 @@ section.active {
     .container {
         flex-direction: column;
     }
-    
+
     .sidebar {
         width: 100%;
         padding: 20px;
     }
-    
+
     .profile img {
         width: 120px;
         height: 120px;
     }
-    
+
     nav ul {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
     }
-    
+
     nav ul li {
         margin-bottom: 0;
     }
-    
+
     .dropdown-menu {
         position: absolute;
         background: var(--primary);
         z-index: 100;
         width: 200px;
     }
-    
+
     main {
         padding: 20px;
     }
-    
+
     section {
         padding: 20px;
     }
-    
+
     .digitalClock {
         flex-wrap: wrap;
     }
-    
+
     .hero-content h1 {
         font-size: 2.5rem;
+    }
+}
+
+/* Atithi Devo Bhava - iPhone Hello Style Animation */
+#atithi {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+#atithi.active {
+    display: flex;
+}
+
+.atithi-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.atithi-demo {
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.atithi-text-wrapper {
+    margin-bottom: 60px;
+}
+
+.atithi-text {
+    font-size: 6rem;
+    font-weight: 700;
+    letter-spacing: 12px;
+    margin: 0;
+    opacity: 0;
+    animation: atithiFadeInScale 2s ease-out forwards;
+    text-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 80px rgba(255, 255, 255, 0.2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+}
+
+.atithi-subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    margin-top: 30px;
+    opacity: 0;
+    animation: atithiSubtitleFadeIn 3s ease-out 1s forwards;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+@keyframes atithiFadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes atithiSubtitleFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.atithi-buttons {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.atithi-reset,
+.atithi-enter-home {
+    padding: 12px 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid white;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: atithiButtonFadeIn 3.5s ease-out 1.5s forwards;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.atithi-enter-home {
+    background-color: rgba(255, 255, 255, 0.3);
+    animation-delay: 2s;
+}
+
+@keyframes atithiButtonFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.atithi-reset:hover,
+.atithi-enter-home:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.atithi-reset:active,
+.atithi-enter-home:active {
+    transform: translateY(0);
+}
+
+/* Animation reset state */
+.atithi-text.reset-animation {
+    animation: none;
+    opacity: 0;
+}
+
+.atithi-subtitle.reset-animation {
+    animation: none;
+    opacity: 0;
+}
+
+.atithi-clock-wrapper.reset-animation {
+    animation: none;
+    opacity: 0;
+}
+
+.atithi-reset.reset-animation,
+.atithi-enter-home.reset-animation {
+    animation: none;
+    opacity: 0;
+}
+
+.atithi-clock-wrapper {
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: atithiClockFadeIn 2.5s ease-out 0.3s forwards;
+}
+
+.atithi-clock {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.atithi-clock h1 {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1.5rem;
+}
+
+.atithi-clock .bar,
+.atithi-clock .dot {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes atithiClockFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    #atithi {
+        min-height: auto;
+        padding: 40px 20px;
+    }
+
+    .atithi-text {
+        font-size: 3.5rem;
+    }
+
+    .atithi-subtitle {
+        font-size: 1rem;
+    }
+
+    .atithi-text-wrapper {
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 576px) {
+    .atithi-text {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+
+    .atithi-subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    .atithi-reset {
+        padding: 10px 20px;
+        font-size: 0.9rem;
     }
 }
 
@@ -600,19 +856,20 @@ section.active {
     .digitalClock h1 {
         font-size: 1.5rem;
     }
-    
+
     .hero-content h1 {
         font-size: 2rem;
     }
-    
+
     .section-header h2 {
         font-size: 1.8rem;
     }
-    
-    .portfolio-grid, .services-grid {
+
+    .portfolio-grid,
+    .services-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 30px;
