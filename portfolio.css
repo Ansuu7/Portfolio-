@@ -188,6 +188,64 @@ section.active {
     min-height: 70vh;
 }
 
+#home {
+    position: relative;
+    overflow: hidden;
+}
+
+.home-decor {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.snowflake {
+    position: absolute;
+    bottom: 30px;
+    color: var(--primary);
+    font-size: 64px;
+    opacity: 0.3;
+}
+
+.snowflake::before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 65vh;
+    background: var(--primary);
+    opacity: 0.3;
+}
+
+.snowflake.left {
+    left: 30px;
+}
+
+.snowflake.right {
+    right: 30px;
+}
+
+@media (max-width: 768px) {
+    .snowflake {
+        font-size: 44px;
+        bottom: 20px;
+    }
+
+    .snowflake::before {
+        height: 55vh;
+    }
+
+    .snowflake.left {
+        left: 16px;
+    }
+
+    .snowflake.right {
+        right: 16px;
+    }
+}
+
 #greet {
     font-size: 1.8rem;
     margin-bottom: 15px;
